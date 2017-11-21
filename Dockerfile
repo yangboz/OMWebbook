@@ -5,6 +5,7 @@ RUN apt-get update
 # Install wget
 RUN apt-get install -y wget
 
+
 # Add OpenModelica stable build
 RUN for deb in deb deb-src; do echo "$deb http://build.openmodelica.org/apt `lsb_release -cs` stable"; done | sudo tee /etc/apt/sources.list.d/openmodelica.list
 RUN wget -q http://build.openmodelica.org/apt/openmodelica.asc -O- | sudo apt-key add - 
